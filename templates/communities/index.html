@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>{{ title }}</h3>
+<a href="/{{ community.slug }}/events/new" role="button">Acara baru</a>
+
+<article>
+  <img src="/img/600_511177814.webp" width="160" height="90" />
+  <h5 class="event">#61 JakartaJS X Hijra</h5>
+  <kbd>16 Maret 2023</kbd>
+  <p>Hi, JavaScript Ninjas!
+
+  Welcome to JakartaJS! We're so happy you are here for our next meetup. This time we are going to have an interesting meetup presented by JakartaJS and Hijra. Let's check the topics below:</p>
+
+  <a href="/">Lanjut...</a>
+</article>
+
+<h4>Acara Terdahulu</h4>
+<article class="past">
+  <img src="/img/clean_468637059.jpeg" width="160" height="90" />
+  <h5 class="event">#60 JakartaJs X AWS</h5>
+  <kbd>30 Agustus 2022</kbd>
+  <p>Hi, JavaScript Ninjas!
+
+It's been a year since our last meetup! We believe that most of you also missed having an offline meetup so we are happy to share that for the Meetup #60, we will have it offline!
+
+For this event, we will have an offline meetup at AWS new office Jakarta! Thank you AWS for sponsoring the venue of this event.</p>
+
+</article>
+<article class="past">
+  <img src="/img/600_498230514.webp" width="160" height="90" />
+  <h5 class="event">#59 JakartaJs X Xendit - QA & Testing</h5>
+  <kbd>19 Agustus 2021</kbd>
+  <p>Hi, JavaScript Ninjas!
+
+It's been a while since our last meetup!
+We're so happy to see you again here. This month, we are going to have an interesting online meetup presented by JakartaJS and Xendit.
+
+It's a bit different from our past workshop as well since we will use zoom in the session for the first time!</p>
+
+</article>
+{% endblock %}

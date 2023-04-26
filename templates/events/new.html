@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Acara baru</h3>
+<form action="/{{ community.slug }}/events/new" method="POST">
+  <fieldset>
+    <label>
+      <input name="title" placeholder="Judul acara" required="true" />
+    </label>
+    <label>
+      <textarea name="description" placeholder="Deskripsi acara"></textarea>
+    </label>
+    <label>
+      <input type="date" name="date" required="true" />
+    </label>
+    <label>
+      <input type="text" name="location" placeholder="Lokasi acara" required="true" />
+    </label>
+    <label>
+      <input type="file" name="poster" placeholder="Poster acara" />
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Buat" />
+</form>
+{% endblock %}

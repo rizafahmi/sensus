@@ -13,8 +13,23 @@ nunjucks.configure(['templates/'], {
 server.set('view engine', 'html')
 
 server.get('/', function(req, res) {
-  res.render('index.html', { title: "Express 5" })
+  res.redirect('/jakartajs')
 })
+
+const community = { name: "JakartaJS", slug: "jakartajs" }
+
+server.get('/jakartajs', function(req, res) {
+  res.render('communities/index.html', { community, title: "Daftar Acara" })
+})
+
+server.get('/jakartajs/events/new', function(req, res) {
+  res.render('events/new.html', { community })
+})
+
+server.post('/jakartajs/events/new', function(req, res) {
+  res.redirect('/jakartajs')
+})
+
 server.get('/ping', function(req, res) {
   res.json({ status: 'OK' })
 })
