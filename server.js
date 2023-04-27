@@ -26,9 +26,14 @@ server.get('/jakartajs/events/new', function(req, res) {
   res.render('events/new.html', { community })
 })
 
+server.get('/jakartajs/events/detail', function(req, res) {
+  res.render('events/detail.html', { community, event: { title: "#61 JakartaJS X Hijra" } })
+})
+
 server.post('/jakartajs/events/new', function(req, res) {
   res.redirect('/jakartajs')
 })
+
 
 server.get('/ping', function(req, res) {
   res.json({ status: 'OK' })
