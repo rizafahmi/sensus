@@ -1,5 +1,7 @@
 # Sensus
 
+Aplikasi untuk mengelola komunitas dan saling berinteraksi.
+
 Nama alternatif
 - komunita
 - sensus (sens.us)
