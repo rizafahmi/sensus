@@ -10,6 +10,9 @@ body>header {
 h3.navbar {
   margin-bottom: 0.25rem;
 }
+h3>a {
+  text-decoration: none;
+}
 
 main.container {
   margin: auto;

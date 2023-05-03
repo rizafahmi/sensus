@@ -22,12 +22,17 @@ server.get('/jakartajs', function(req, res) {
   res.render('communities/index.html', { community, title: "Daftar Acara" })
 })
 
+server.get('/jakartajs/members', function(req, res) {
+  res.render('members/index.html', { community })
+})
+
 server.get('/jakartajs/events/new', function(req, res) {
   res.render('events/new.html', { community })
 })
 
 server.get('/jakartajs/events/detail', function(req, res) {
-  res.render('events/detail.html', { community, event: { title: "#61 JakartaJS X Hijra" } })
+  const event = { title: "#61 JakartaJS X Hijra" }
+  res.render('events/detail.html', { community, event, title: event.title })
 })
 
 server.post('/jakartajs/events/new', function(req, res) {
