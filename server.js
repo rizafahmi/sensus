@@ -12,11 +12,15 @@ nunjucks.configure(['templates/'], {
 // server.set('views', 'templates')
 server.set('view engine', 'html')
 
+const community = { name: "JakartaJS", slug: "jakartajs" }
+
 server.get('/', function(req, res) {
-  res.redirect('/jakartajs')
+  res.render('members/login.html', { title: "Login" })
 })
 
-const community = { name: "JakartaJS", slug: "jakartajs" }
+server.post('/members/login', function(req, res) {
+  res.redirect('/jakartajs')
+})
 
 server.get('/jakartajs', function(req, res) {
   res.render('communities/index.html', { community, title: "Daftar Acara" })
@@ -33,6 +37,12 @@ server.get('/jakartajs/events/new', function(req, res) {
 server.get('/jakartajs/events/detail', function(req, res) {
   const event = { title: "#61 JakartaJS X Hijra" }
   res.render('events/detail.html', { community, event, title: event.title })
+})
+
+// RSVP
+server.post('/jakartajs/events/detail', function(req, res) {
+  const event = { title: "#61 JakartaJS X Hijra" }
+  res.render('events/detail.html', { community, event, title: event.title, info: "RSVP berhasil! Sampai jumpa di lokasi acara!!" })
 })
 
 server.post('/jakartajs/events/new', function(req, res) {

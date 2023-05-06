@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+
+<form action="/members/login" method="POST">
+    <fieldset>
+        <label>
+            <input name="email" placeholder="Email" type="email" required="true" />
+        </label>
+    </fieldset>
+
+    <input type="submit" value="Send magic link 🪄" />
+</form>
+
+{% endblock %}
