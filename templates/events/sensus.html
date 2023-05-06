@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Daftar Hadir Acara: {{ event.title }}</h2>
+
+<form action="" method="POST">
+    <fieldset>
+        <label>
+            <input name="name" placeholder="Nama (nanti autocomplete)" required="true" />
+        </label>
+
+    </fieldset>
+
+    <input type="submit" value="Konfirmasi kehadiran" />
+</form>
+
+{% endblock %}
