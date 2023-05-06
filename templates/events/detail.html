@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{%if info %}
+<blockquote>{{ info }}</blockquote>
+{%endif%}
+
 <h2>{{ event.title }}</h2>
 <div style="margin-bottom: 1rem;">
     <img src="/img/600_511177814.webp" width="600" height="338" />
@@ -45,6 +50,9 @@
     20.10 - 20.30 Networking <br />
 </p>
 
+<form action="" method="POST">
+    <button type="submit">RSVP</button>
+</form>
 <h3>Daftar hadir</h3>
 
 <p>Scan QR Code ini untuk menandai kehadiran kamu.</p>
