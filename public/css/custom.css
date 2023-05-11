@@ -29,3 +29,13 @@ aside {
 h5.event {
   margin-top: var(--pico-spacing);
 }
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex > h3 {
+    align-self: center;
+}

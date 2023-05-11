@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/pico.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <title>Sensus untuk Komunitas</title>
+</head>
+
+<body>
+    <header class="is-fixed-above-lg">
+        <div class="container flex">
+            <h3 class="navbar"><a class="contrast" href={{"/"}}>Sensus</a></h3>
+            <nav>
+                <ul>
+                    <li><a href="/members/register" role="button" class="outline secondary">Registrasi</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <main class="container">
+        <section>
+
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            &copy; 2023
+        </div>
+    </footer>
+</body>
+
+</html>

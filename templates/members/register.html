@@ -1,0 +1,19 @@
+{% extends '_unauthorize.html' %}
+
+{% block content %}
+<h2>Registrasi</h2>
+
+<form action="/members/register" method="POST">
+    <fieldset>
+        <label>
+            <input name="name" placeholder="Nama" type="text" required="true" />
+        </label>
+        <label>
+            <input name="email" placeholder="Email" type="email" required="true" />
+        </label>
+    </fieldset>
+
+    <input type="submit" value="Registrasi 📨" />
+</form>
+
+{% endblock %}

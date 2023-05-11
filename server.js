@@ -1,5 +1,6 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
+import bodyParser from 'body-parser'
 import knex from 'knex'
 
 const PORT = process.env.PORT || 8080
@@ -13,6 +14,8 @@ nunjucks.configure(['templates/'], {
 // server.set('views', 'templates')
 server.set('view engine', 'html')
 
+server.use(bodyParser.urlencoded({ extended: false }))
+
 const community = { name: "JakartaJS", slug: "jakartajs" }
 
 const db = knex({
@@ -21,9 +24,32 @@ const db = knex({
 })
 
 server.get('/', async function(req, res) {
+  // for testing database connection
   const users = await db.select('name').from('users')
 
-  res.render('members/login.html', { title: "Login" })
+  res.render('index.html', { title: "Sensus untuk Komunitas" })
+})
+
+server.get('/members/register', function(req, res) {
+  res.render('members/register.html', { title: "Sensus untuk Komunitas" })
+})
+
+server.post('/members/register', async function(req, res) {
+  const { email, name } = req.body;
+  // TODO: sanitize user input
+
+  // insert to database
+  try {
+    await db.insert({ email, name }).into('users')
+  } catch (err) {
+    console.error(err)
+  }
+
+  res.redirect('/members/login')
+})
+
+server.get('/members/login', function(req, res) {
+  res.render('members/login.html', { title: "Sensus untuk Komunitas" })
 })
 
 server.post('/members/login', function(req, res) {
