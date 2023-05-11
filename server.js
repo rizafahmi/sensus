@@ -1,5 +1,6 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
+import knex from 'knex'
 
 const PORT = process.env.PORT || 8080
 const server = express()
@@ -14,7 +15,14 @@ server.set('view engine', 'html')
 
 const community = { name: "JakartaJS", slug: "jakartajs" }
 
-server.get('/', function(req, res) {
+const db = knex({
+  client: 'pg',
+  connection: process.env.DATABASE_URL || 'postgres://riza:@localhost:5432/sensus_dev'
+})
+
+server.get('/', async function(req, res) {
+  const users = await db.select('name').from('users')
+
   res.render('members/login.html', { title: "Login" })
 })
 
