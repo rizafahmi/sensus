@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import knex from 'knex'
 import jwt from 'jsonwebtoken'
 import crypto from 'crypto'
+import config from './knexfile.js'
 
 import { sendEmail } from './utils.js'
 
@@ -24,10 +25,7 @@ server.use(cookieParser())
 
 const community = { name: "JakartaJS", slug: "jakartajs" }
 
-const db = knex({
-  client: 'pg',
-  connection: process.env.DATABASE_URL || 'postgres://riza:@localhost:5432/sensus_dev'
-})
+const db = knex(config['development'])
 
 server.get('/', async function(req, res) {
   // for testing database connection
@@ -54,6 +52,7 @@ server.post('/members/register', async function(req, res) {
   res.redirect('/members/login')
 })
 
+// TODO: Login pakai kode 4 nomor kayaknya lebih seru
 server.get('/members/login', function(req, res) {
 
   res.render('members/login.html', { title: "Sensus untuk Komunitas" })
