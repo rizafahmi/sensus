@@ -16,6 +16,7 @@
             <nav>
                 <ul>
                     <li><a href="/members/register" role="button" class="outline secondary">Registrasi</a></li>
+                    <li><a href="/members/login" role="button" class="outline primary">Login</a></li>
                 </ul>
             </nav>
 
@@ -23,7 +24,9 @@
     </header>
     <main class="container">
         <section>
-
+            {%if info %}
+            <blockquote>{{ info }}</blockquote>
+            {% endif %}
             {% block content %}{% endblock %}
         </section>
     </main>
